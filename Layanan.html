@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<title>Pelayanan Pariwisata Banda Neira</title>
+<style>
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f0f8ff;
+    color: #222;
+    line-height: 1.5;
+    max-width: 350px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 100vh;
+    overflow-y: auto;
+  }
+  header {
+    background: linear-gradient(135deg, #004d40, #00796b);
+    padding: 1rem;
+    text-align: center;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  header h1 {
+    margin: 0;
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+  nav {
+    margin-top: 0.5rem;
+  }
+  nav a {
+    color: white;
+    margin: 0 0.5rem;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+  }
+  nav a:hover,
+  nav a:focus {
+    color: #a5d6a7;
+  }
+  main {
+    padding: 1rem;
+  }
+  .hero {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    margin-bottom: 1rem;
+  }
+  .hero img {
+    width: 100%;
+    display: block;
+    filter: brightness(0.85);
+  }
+  .hero-text {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    color: #e0f2f1;
+    font-size: 1.3rem;
+    font-weight: 700;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+  }
+  section {
+    margin-bottom: 1.5rem;
+  }
+  section h2 {
+    font-size: 1.2rem;
+    margin-bottom: 0.7rem;
+    border-bottom: 2px solid #00796b;
+    padding-bottom: 0.25rem;
+    font-weight: 700;
+    color: #004d40;
+  }
+  .card-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    padding: 0.8rem;
+    transition: transform 0.3s ease;
+  }
+  .card:hover,
+  .card:focus-within {
+    transform: scale(1.02);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+  }
+  .card h3 {
+    margin-top: 0;
+    margin-bottom: 0.3rem;
+    font-size: 1rem;
+    color: #00796b;
+  }
+  .card p {
+    margin: 0;
+    font-size: 0.9rem;
+  }
+  .contact-info {
+    font-size: 0.9rem;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 0.3rem;
+    color: #004d40;
+  }
+  input, textarea {
+    padding: 0.5rem;
+    font-size: 0.9rem;
+    border-radius: 6px;
+    border: 1.5px solid #00796b;
+    margin-bottom: 1rem;
+    resize: vertical;
+  }
+  button {
+    background: #00796b;
+    color: white;
+    font-weight: 700;
+    border: none;
+    padding: 0.7rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  button:hover,
+  button:focus {
+    background: #004d40;
+  }
+  footer {
+    text-align: center;
+    font-size: 0.8rem;
+    color: #555;
+    padding: 1rem;
+    border-top: 1px solid #ccc;
+    background: #e0f2f1;
+    position: sticky;
+    bottom: 0;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>Pelayanan Pariwisata Banda Neira</h1>
+  <nav>
+    <a href="#atraksi">Atraksi</a>
+    <a href="#layanan">Layanan</a>
+    <a href="#budaya">Budaya</a>
+    <a href="#kontak">Kontak</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero" aria-label="Foto pemandangan Banda Neira">
+    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="Pemandangan indah Banda Neira dari pantai" />
+    <div class="hero-text">Jelajahi Keindahan dan Budaya Banda Neira</div>
+  </section>
+
+  <section id="atraksi" tabindex="0">
+    <h2>Atraksi Wisata</h2>
+    <div class="card-list">
+      <article class="card" tabindex="0" aria-label="Benteng Belgica">
+        <h3>Benteng Belgica</h3>
+        <p>Benteng bersejarah abad ke-17 dengan pemandangan spektakuler laut dan pulau-pulau sekitar.</p>
+      </article>
+      <article class="card" tabindex="0" aria-label="Pulau Hatta">
+        <h3>Pulau Hatta</h3>
+        <p>Pulau cantik dengan pantai berpasir putih, snorkeling, dan hutan mangrove.</p>
+      </article>
+      <article class="card" tabindex="0" aria-label="Museum Negeri Ternate">
+        <h3>Museum Negeri Banda Neira</h3>
+        <p>Museum tentang sejarah rempah-rempah, penjajahan, dan budaya Banda Neira.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="layanan" tabindex="0">
+    <h2>Layanan Pariwisata</h2>
+    <div class="card-list">
+      <article class="card" tabindex="0" aria-label="Pemandu Wisata Lokal">
+        <h3>Pemandu Wisata Lokal</h3>
+        <p>Pemandu yang berpengalaman membantu Anda menjelajahi tempat-tempat terbaik di Banda Neira.</p>
+      </article>
+      <article class="card" tabindex="0" aria-label="Penginapan">
+        <h3>Penginapan Nyaman</h3>
+        <p>Berbagai pilihan penginapan mulai dari homestay hingga resor yang mewah.</p>
+      </article>
+      <article class="card" tabindex="0" aria-label="Transportasi">
+        <h3>Transportasi</h3>
+        <p>Layanan penyewaan kapal dan transportasi antar pulau.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="budaya" tabindex="0">
+    <h2>Budaya dan Tradisi</h2>
+    <div class="card-list">
+      <article class="card" tabindex="0" aria-label="Festival Rempah">
+        <h3>Festival Rempah</h3>
+        <p>Acara tahunan untuk merayakan warisan rempah-rempah Banda Neira dengan musik dan tarian tradisional.</p>
+      </article>
+      <article class="card" tabindex="0" aria-label="Kerajinan Lokal">
+        <h3>Kerajinan Tangan</h3>
+        <p>Produk lokal seperti anyaman, kain tenun, dan perhiasan khas Banda Neira.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="kontak" tabindex="0">
+    <h2>Kontak Kami</h2>
+    <div class="contact-info" aria-live="polite">
+      <p>Alamat: Jalan Raya Banda Neira No. 1, Banda Neira, Maluku Tengah</p>
+      <p>Telepon: <a href="tel:+6281234567890">+62 812-3456-7890</a></p>
+      <p>Email: <a href="mailto:info@bandaneira-tourism.id">info@bandaneira-tourism.id</a></p>
+    </div>
+    <form id="contactForm" aria-label="Formulir kontak untuk pariwisata Banda Neira">
+      <label for="name">Nama Lengkap</label>
+      <input type="text" id="name" name="name" placeholder="Nama Anda" required />
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="Email Anda" required />
+
+      <label for="message">Pesan</label>
+      <textarea id="message" name="message" rows="4" placeholder="Tulis pesan Anda..." required></textarea>
+
+      <button type="submit">Kirim Pesan</button>
+    </form>
+    <p id="formStatus" role="alert" style="color:green; font-weight: 600;"></p>
+  </section>
+</main>
+
+<footer>
+  &copy; 2025 Pelayanan Pariwisata Banda Neira. Semua hak cipta dilindungi.
+</footer>
+
+<script>
+  document.getElementById('contactForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const status = document.getElementById('formStatus');
+    const name = this.name.value.trim();
+    const email = this.email.value.trim();
+    const message = this.message.value.trim();
+    if (name && email && message) {
+      status.style.color = 'green';
+      status.textContent = 'Terima kasih, pesan Anda sudah terkirim!';
+      this.reset();
+    } else {
+      status.style.color = 'red';
+      status.textContent = 'Mohon lengkapi semua kolom.';
+    }
+  });
+</script>
+</body>
+</html>
+</content>
+</create_file>

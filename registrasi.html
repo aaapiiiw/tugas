@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <title>Registrasi Pariwisata Banda Neira</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f2f7f9;
+      color: #34495e;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem;
+    }
+    main {
+      width: 100%;
+      max-width: 350px;
+      height: 100%;
+      max-height: 600px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    header {
+      position: relative;
+      height: 150px;
+      background: url('https://i.pinimg.com/736x/db/ed/be/dbedbec4b91f26fa057532b86a28e91b.jpg') no-repeat center center/cover;
+      border-top-left-radius: 12px;
+      border-top-right-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+    }
+    header h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin: 0;
+      text-align: center;
+    }
+    form {
+      padding: 1.5rem 1.5rem 2rem;
+      overflow-y: auto;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    label {
+      margin-bottom: 0.25rem;
+      font-weight: 600;
+    }
+    input, select, textarea {
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+      border: 1.5px solid #d1d8e0;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+      resize: vertical;
+      font-family: inherit;
+    }
+    input:focus, select:focus, textarea:focus {
+      border-color: #0984e3;
+      outline: none;
+      box-shadow: 0 0 6px #74b9ff88;
+    }
+    textarea {
+      min-height: 60px;
+    }
+    button {
+      padding: 0.75rem;
+      background-color: #0984e3;
+      color: white;
+      font-size: 1.1rem;
+      font-weight: 700;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      user-select: none;
+    }
+    button:hover {
+      background-color: #74b9ff;
+    }
+    .success-message {
+      text-align: center;
+      padding: 1rem;
+      background: #55efc4;
+      color: #2d3436;
+      border-radius: 10px;
+      margin-top: 1rem;
+      font-weight: 700;
+      display: none;
+    }
+    @media (max-height: 600px) {
+      main {
+        max-height: 600px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Registrasi Wisatawan Banda Neira</h1>
+    </header>
+    <form id="registrationForm" novalidate>
+      <label for="fullname">Nama Lengkap<span style="color:#d63031">*</span></label>
+      <input type="text" id="fullname" name="fullname" placeholder="Nama lengkap Anda" required />
+
+      <label for="email">Email<span style="color:#d63031">*</span></label>
+      <input type="email" id="email" name="email" placeholder="email@domain.com" required />
+
+      <label for="phone">No. Telepon<span style="color:#d63031">*</span></label>
+      <input type="tel" id="phone" name="phone" placeholder="+62..." pattern="^(\+62|0)[0-9]{8,15}$" required />
+
+      <label for="visitors">Jumlah Pengunjung<span style="color:#d63031">*</span></label>
+      <select id="visitors" name="visitors" required>
+        <option value="" disabled selected>Pilih jumlah pengunjung</option>
+        <option value="1">1 orang</option>
+        <option value="2">2 orang</option>
+        <option value="3">3 orang</option>
+        <option value="4">4 orang</option>
+        <option value="5">5 orang</option>
+        <option value="6+">6 orang atau lebih</option>
+      </select>
+
+      <label for="visitDate">Tanggal Kunjungan<span style="color:#d63031">*</span></label>
+      <input type="date" id="visitDate" name="visitDate" required />
+
+      <label for="requests">Permintaan Khusus (opsional)</label>
+      <textarea id="requests" name="requests" placeholder="Contoh: kebutuhan khusus, informasi tambahan..."></textarea>
+
+      <button type="submit">Daftar</button>
+      <div class="success-message" id="successMessage">Terima kasih! Formulir berhasil dikirim.</div>
+    </form>
+  </main>
+  <script>
+    (function(){
+      const form = document.getElementById('registrationForm');
+      const successMessage = document.getElementById('successMessage');
+
+      function isValidPhone(phone) {
+        const regex = /^(\+62|0)[0-9]{8,15}$/;
+        return regex.test(phone);
+      }
+
+      form.addEventListener('submit', function(e){
+        e.preventDefault();
+        successMessage.style.display = 'none';
+
+        const fullname = form.fullname.value.trim();
+        const email = form.email.value.trim();
+        const phone = form.phone.value.trim();
+        const visitors = form.visitors.value;
+        const visitDate = form.visitDate.value;
+
+        let errors = [];
+
+        if (!fullname) errors.push('Nama Lengkap harus diisi.');
+        if (!email) errors.push('Email harus diisi.');
+        else {
+          const emailRegex = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+          if(!emailRegex.test(email)) errors.push('Format email tidak valid.');
+        }
+        if (!phone) errors.push('No. Telepon harus diisi.');
+        else if(!isValidPhone(phone)) errors.push('Format No. Telepon tidak valid. Contoh: +6281234567890 atau 081234567890');
+        if (!visitors) errors.push('Jumlah Pengunjung harus dipilih.');
+        if (!visitDate) errors.push('Tanggal Kunjungan harus diisi.');
+
+        if(errors.length > 0) {
+          alert(errors.join('\n'));
+          return;
+        }
+
+        form.reset();
+        successMessage.style.display = 'block';
+        form.scrollIntoView({behavior: 'smooth'});
+      });
+    })();
+  </script>
+</body>
+</html>
+
